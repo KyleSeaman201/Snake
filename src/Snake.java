@@ -37,6 +37,24 @@ public class Snake {
         return coords;
     }
 
+    public boolean isCollide(){
+        boolean collide = false;
+        Body tempHead = head;
+        tempHead = tempHead.next;
+        int x = head.x;
+        int y = head.y;
+        while (tempHead.next != null) {
+            if ((tempHead.x == x) && (tempHead.y == y)){
+                collide = true;
+            }
+            tempHead = tempHead.next;
+        }
+        if ((tempHead.x == x) && (tempHead.y == y)){
+            collide = true;
+        }
+        return collide;
+    }
+
     public void moveLeft(){
         if (direction != Direction.East){
             direction = Direction.West;

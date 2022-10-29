@@ -14,6 +14,8 @@ public class Food {
         this.game = game;
         this.x = randomX();
         this.y = randomY();
+        System.out.println(this.x);
+        System.out.println(this.y);
 
         this.bodyLabel = new JLabel();
 
@@ -35,19 +37,8 @@ public class Food {
     }
 
     public int randomX(){
-        int x;
-        x = random.nextInt(game.boardDimension);
+        int x = random.nextInt(game.boardDimension);
         return x;
-//        while(true) {
-//            x = random.nextInt(game.boardDimension);
-//            Body body = game.snake.head;
-//            while(body != null){
-//                if (body.x == x){
-//                    break;
-//                }
-//            }
-//            return x;
-//        }
     }
 
     public int randomY(){

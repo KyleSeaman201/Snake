@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class Game implements KeyListener, ActionListener {
-    public final int boardDimension = 15;
+    public final int boardDimension = 5;
     public Snake snake;
     public Food food;
 
@@ -41,6 +41,10 @@ public class Game implements KeyListener, ActionListener {
         if ((snake.head.x == food.x) && (snake.head.y == food.y)){
             snake.grow(lastBodyCoords);
             food.move();
+        }
+
+        if(snake.isCollide()){
+            gameOver = true;
         }
 
         if (gameOver) {
