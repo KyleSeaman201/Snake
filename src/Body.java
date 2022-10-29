@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
 
 public class Body {
     public Body next;
@@ -7,6 +8,7 @@ public class Body {
     public int y;
     JLabel bodyLabel;
     Frame frame;
+    Map<String, Integer> oldCoords;
     public Body(int x, int y){
         this.x = x;
         this.y = y;

@@ -19,9 +19,10 @@ public class Frame extends JFrame{
 
         this.setTitle("Snake");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //exit button closes program
-
         int windowDimension = game.boardDimension * bodySize; //body is 20 pixels
-        this.setSize(windowDimension+20, windowDimension+20); //window size
+
+        // TODO: I cannot figure out why the window doesn't match my dimensions
+        this.setSize(windowDimension+35, windowDimension+58); //window size
         this.setLayout(null);
         this.setLocationRelativeTo(null); //window location is center of screen
         this.getContentPane().setBackground(Color.BLACK);
