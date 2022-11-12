@@ -12,10 +12,7 @@ public class Food {
 
     public Food(Game game){
         this.game = game;
-        this.x = randomX();
-        this.y = randomY();
-        System.out.println(this.x);
-        System.out.println(this.y);
+        newLocation(); // This sets x & y position
 
         this.bodyLabel = new JLabel();
 
@@ -28,12 +25,35 @@ public class Food {
     }
 
     public void move() {
-        this.x = randomX();
-        this.y = randomY();
+        newLocation();
 
         this.bodyLabel.setBounds(xCoordinate(),yCoordinate(),frame.bodySize,frame.bodySize);
         this.bodyLabel.setBackground(Color.RED);
         this.bodyLabel.setOpaque(true);
+    }
+
+    public void newLocation(){
+        int tempX = randomX();
+        int tempY = randomY();
+        boolean snakeExists = true;
+
+        while (snakeExists) {
+            snakeExists = false;
+            tempX = randomX();
+            tempY = randomY();
+
+            Body tempSnake = game.snake.head;
+            while (tempSnake != null) {
+                if ((tempSnake.x == tempX) && (tempSnake.y == tempY)) {
+                    snakeExists = true;
+                    break;
+                }
+                tempSnake = tempSnake.next;
+            }
+        }
+
+        this.x = tempX;
+        this.y = tempY;
     }
 
     public int randomX(){

@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class Game implements KeyListener, ActionListener {
-    public final int boardDimension = 5;
+    public final int boardDimension = 20;
     public Snake snake;
     public Food food;
 
@@ -20,7 +20,7 @@ public class Game implements KeyListener, ActionListener {
         this.gameOver = false;
         this.snake = new Snake(this);
         this.food = new Food(this);
-        this.timer = new Timer(250, this);
+        this.timer = new Timer(150, this);
         this.timer.start();
     }
 
