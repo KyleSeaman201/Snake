@@ -6,9 +6,10 @@ public class Snake {
     Direction direction;
     Game game;
     Map<String, Integer> oldCoords;
+    int tailColor;
     public Snake(Game game){
         this.game = game;
-        head = new Body(3, 0);
+        head = new Body(3, 0, 255);
         head.addTail(2, 0);
         head.next.addTail(1, 0);
         head.next.next.addTail(0, 0);
@@ -18,12 +19,11 @@ public class Snake {
     public void grow(Map<String, Integer> coords){
         int x = coords.get("x");
         int y = coords.get("y");
-        Body newbody = new Body(x, y);
         Body tempHead = head;
         while (tempHead.next != null){
             tempHead = tempHead.next;
         }
-        tempHead.next = newbody;
+        tempHead.addTail(x, y);
     }
 
     public Map<String, Integer> getLastBody(){

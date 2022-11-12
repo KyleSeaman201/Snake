@@ -25,7 +25,7 @@ public class Frame extends JFrame{
         this.setSize(windowDimension+35, windowDimension+58); //window size
         this.setLayout(null);
         this.setLocationRelativeTo(null); //window location is center of screen
-        this.getContentPane().setBackground(Color.BLACK);
+        this.getContentPane().setBackground(new Color(0,0,50));
         this.addKeyListener(game);
         this.setResizable(false);
 

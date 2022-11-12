@@ -9,22 +9,29 @@ public class Body {
     JLabel bodyLabel;
     Frame frame;
     Map<String, Integer> oldCoords;
-    public Body(int x, int y){
+    int color;
+    public Body(int x, int y, int color){
         this.x = x;
         this.y = y;
         this.next = null;
         this.bodyLabel = new JLabel();
 
+        if (color < 0) {
+            this.color = 0;
+        } else {
+            this.color = color;
+        }
+
         frame = Frame.getInstance();
         this.bodyLabel.setBounds(xCoordinate(),yCoordinate(),frame.bodySize,frame.bodySize);
-        this.bodyLabel.setBackground(Color.WHITE);
+        this.bodyLabel.setBackground(new Color(this.color,this.color,this.color));
         this.bodyLabel.setOpaque(true);
 
         frame.add(this.bodyLabel);
     }
 
     public void addTail(int x, int y) {
-        this.next = new Body(x, y);
+        this.next = new Body(x, y, this.color-10);
     }
 
     public int xCoordinate() {
